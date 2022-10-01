@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useData } from '../hooks/useData'
 
-const useFetch = (url, refresh) => {
+const useFetch = (url) => {
 
   const {updateData} = useData();
 
@@ -20,7 +20,7 @@ const useFetch = (url, refresh) => {
         // auto catches network / connection error
         console.log(err);
       })
-  }, [url, refresh])
+  }, [url])
 
 }
  
