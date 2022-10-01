@@ -3,9 +3,10 @@ import { useData } from '../hooks/useData'
 
 const useFetch = (url) => {
 
-  const {updateData} = useData();
+  const { updateData } = useData();
 
   useEffect(() => {
+    const interval = setInterval(() =>{
       fetch(url)
       .then(res => {
         if (!res.ok) { // error coming back from server
@@ -20,6 +21,8 @@ const useFetch = (url) => {
         // auto catches network / connection error
         console.log(err);
       })
+    }, 2500);
+    return () => clearInterval(interval);
   }, [url])
 
 }
